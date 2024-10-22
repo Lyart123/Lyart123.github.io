@@ -19,6 +19,7 @@ header {
   justify-content: center;
   align-items: center;
   flex: 1;
+  border-bottom: 0.15vw solid rgb(180, 180, 180);
 }
 
 footer {
@@ -27,6 +28,10 @@ footer {
   display: flex;
   justify-content: end;
   align-items: end;
+}
+
+.mobile-footer {
+  display: none;
 }
 
 .container {
@@ -134,7 +139,6 @@ footer {
 
 .body-lnk {
   flex: 2;
-  border-top: 0.15vw solid rgb(180, 180, 180);
 }
 
 .con1 {
@@ -188,4 +192,142 @@ footer {
 }
 .ref:hover .svg-icon {
   fill: initial;
+}
+
+@media (width < 1800px) {
+  img {
+    display: none;
+  }
+  .body-lnk {
+    display: block;
+    margin-left: 100px;
+  }
+  .link-li p {
+    font-size: 2vw;
+  }
+  .footer-text {
+    font-size: 3vw;
+  }
+  .skills-list {
+    font-size: 3vw;
+  }
+}
+@media (width < 1300px) {
+  .skills-list {
+    font-size: 4vw;
+  }
+  .body-lnk {
+    display: block;
+    margin-left: 30px;
+  }
+  .link-li p {
+    font-size: 3vw;
+  }
+  .footer-text {
+    font-size: 4vw;
+  }
+}
+@media (width < 1000px) {
+  .vertical-line {
+    display: none;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .right {
+    order: 1;
+    min-height: 60vh;
+  }
+  .left {
+    order: 2;
+    border-top: 0.15vw solid rgb(180, 180, 180);
+    min-height: 100vh;
+  }
+  footer {
+    display: none;
+  }
+  .site-name {
+    font-size: 6vw;
+  }
+  .body-lnk {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25vw;
+    align-items: start;
+  }
+  img {
+    margin-top: 50px;
+    display: block;
+    min-width: 500px;
+  }
+  .con1 {
+    margin: 0;
+  }
+  .container-left-inner {
+    flex-direction: column;
+    justify-content: start;
+  }
+  .skills-list {
+    font-size: 4vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .li-skills {
+    margin-left: 10px;
+  }
+  .mobile-footer {
+    display: flex;
+    position: relative;
+    top: 450px;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-size: 5vw;
+    font-family: "Kiwi Maru", serif;
+    border-top: 0.15vw solid rgb(180, 180, 180);
+    margin-top: 20px;
+  }
+}
+@media (width < 700px) {
+  .link-li p {
+    font-size: 4vw;
+  }
+}
+@media (width < 600px) {
+  .link-li p {
+    font-size: 4vw;
+  }
+  img {
+    margin-top: 20px;
+    display: block;
+    min-width: 300px;
+  }
+  .skills-list {
+    padding: 0;
+    font-size: 4vw;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .container-left-inner {
+    flex-direction: column;
+    justify-content: start;
+    min-height: 20vh;
+  }
+  .body-lnk {
+    margin-left: 20vw;
+  }
+  .mobile-footer {
+    top: 100px;
+  }
+  .left {
+    min-height: 60vh;
+  }
+}
+@media (width < 450px) {
+  .link-li p {
+    font-size: 5vw;
+  }
+  .body-lnk {
+    margin-left: 10vw;
+  }
 }/*# sourceMappingURL=style.css.map */
