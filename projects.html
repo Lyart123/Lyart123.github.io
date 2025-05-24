@@ -1,23 +1,541 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECTS | Artem Lysunets</title>
-    <link rel="stylesheet" href="style.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DL4738H4GM"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+    <title>Словарь: Форматы сведений об информационных ресурсах</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f7fa;
+            color: #333;
+        }
 
-    gtag('config', 'G-DL4738H4GM');
-    </script>
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
 
+        .alphabet-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            padding: 15px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .alphabet-nav a {
+            color: #2c3e50;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            background: #f0f4f8;
+            font-size: 70%;
+        }
+
+        .alphabet-nav a:hover {
+            background: #4CAF50;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .term-section {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .term-section h2 {
+            color: #4CAF50;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .term-block {
+            margin-bottom: 25px;
+            padding: 20px;
+            border-left: 5px solid #4CAF50;
+            background-color: #f9f9f9;
+            border-radius: 0 8px 8px 0;
+            transition: transform 0.3s;
+        }
+
+        .term-block:hover {
+            transform: translateX(5px);
+        }
+
+        .term {
+            color: #2c3e50;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .term-en {
+            font-size: 0.8em;
+            color: #7f8c8d;
+            margin-left: 10px;
+            font-weight: normal;
+            font-style: italic;
+        }
+
+        .definition {
+            color: #34495e;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .manifest {
+            color: #5d6d7e;
+            font-style: italic;
+            padding: 10px;
+            background-color: #ebedef;
+            border-radius: 5px;
+            border-left: 3px solid #95a5a6;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s;
+            font-weight: 500;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .back-to-top:hover {
+            background: #3d8b40;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            .alphabet-nav {
+                gap: 5px;
+                padding: 10px;
+            }
+            
+            .alphabet-nav a {
+                padding: 8px 12px;
+                font-size: 0.9em;
+            }
+            
+            .term-block {
+                padding: 15px;
+            }
+            
+            .term {
+                font-size: 1.1em;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .term-en {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+        }
+        .back-button {
+        position: fixed;
+        z-index: 999;
+        top: 2%;
+        left: 2%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border: 3px solid #a5a5a5   ;
+
+        img {
+            width: 25px;
+            height: 25px;
+            transform: rotate(270deg);
+        }
+}
+    </style>
 </head>
 <body>
-    <div class="placeholder">
-        <h1>ooops, work in progress</h1>
+    <h1>Форматы сведений об информационных ресурсах</h1>
+    
+    <div class="alphabet-nav">
+        <a href="#А">А</a>
+        <a href="#Б">Б</a>
+        <a href="#В">В</a>
+        <a href="#Г">Г</a>
+        <a href="#Д">Д</a>
+        <a href="#И">И</a>
+        <a href="#К">К</a>
+        <a href="#М">М</a>
+        <a href="#О">О</a>
+        <a href="#П">П</a>
+        <a href="#Р">Р</a>
+        <a href="#С">С</a>
+        <a href="#Ф">Ф</a>
+        <a href="#X">X</a>
+        <a href="#A">A</a>
+        <a href="#B">B</a>
+        <a href="#D">D</a>
+        <a href="#E">E</a>
+        <a href="#F">F</a>
+        <a href="#H">H</a>
+        <a href="#I">I</a>
+        <a href="#J">J</a>
+        <a href="#M">M</a>
+        <a href="#O">O</a>
+        <a href="#R">R</a>
+        <a href="#S">S</a>
     </div>
+
+    <!-- Секции с терминами -->
+    <div id="А" class="term-section">
+        <h2>А</h2>
+        
+        <div class="term-block">
+            <div class="term">Аннотация <span class="term-en">Annotation</span></div>
+            <div class="definition">Краткое описание содержания ресурса с указанием основных характеристик и особенностей.</div>
+            <div class="manifest">Формат: текстовый документ, 200-500 символов. Используется в библиографических описаниях.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">Атрибутивный поиск <span class="term-en">Attribute search</span></div>
+            <div class="definition">Поиск информации по заданным атрибутам или характеристикам документа.</div>
+            <div class="manifest">Применяется в базах данных, каталогах. Пример: поиск по автору, дате, ключевым словам.</div>
+        </div>
+    </div>
+
+    <div id="Б" class="term-section">
+        <h2>Б</h2>
+        
+        <div class="term-block">
+            <div class="term">Библиографическая запись <span class="term-en">Bibliographic record</span></div>
+            <div class="definition">Структурированная информация о документе, включающая основные идентификаторы и метаданные.</div>
+            <div class="manifest">Стандарт: ГОСТ 7.1-2003. Форматы: MARC21, UNIMARC, RUSMARC.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">Базис классификации <span class="term-en">Classification basis</span></div>
+            <div class="definition">Совокупность признаков, по которым осуществляется разделение объектов классификации.</div>
+            <div class="manifest">Примеры: тематический, хронологический, географический базисы.</div>
+        </div>
+    </div>
+
+    <div id="В" class="term-section">
+        <h2>В</h2>
+        
+        <div class="term-block">
+            <div class="term">Вторичные документы <span class="term-en">Secondary documents</span></div>
+            <div class="definition">Документы, созданные в результате аналитико-синтетической переработки первичных документов.</div>
+            <div class="manifest">Примеры: рефераты, обзоры, аннотации, библиографические указатели.</div>
+        </div>
+    </div>
+
+    <div id="Г" class="term-section">
+        <h2>Г</h2>
+        
+        <div class="term-block">
+            <div class="term">Гипертекстовая разметка <span class="term-en">Hypertext markup</span></div>
+            <div class="definition">Способ организации документов с использованием гиперссылок между различными фрагментами текста.</div>
+            <div class="manifest">Стандарты: HTML, XML. Применяется в веб-документах, электронных изданиях.</div>
+        </div>
+    </div>
+
+    <div id="Д" class="term-section">
+        <h2>Д</h2>
+        
+        <div class="term-block">
+            <div class="term">Дублинское ядро <span class="term-en">Dublin Core</span></div>
+            <div class="definition">Международный стандарт метаданных для описания цифровых ресурсов, включающий 15 основных элементов.</div>
+            <div class="manifest">Элементы: Title, Creator, Subject, Description и др. Применяется в цифровых библиотеках.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">Дескриптор <span class="term-en">Descriptor</span></div>
+            <div class="definition">Лексическая единица информационно-поискового языка, используемая для описания содержания документа.</div>
+            <div class="manifest">Применяется в информационно-поисковых системах, тезаурусах.</div>
+        </div>
+    </div>
+
+    <div id="И" class="term-section">
+        <h2>И</h2>
+        
+        <div class="term-block">
+            <div class="term">Информационный массив <span class="term-en">Information array</span></div>
+            <div class="definition">Упорядоченная совокупность документов или данных, объединенных по определенным признакам.</div>
+            <div class="manifest">Примеры: базы данных, архивы, коллекции цифровых объектов.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">Идентификатор объекта <span class="term-en">Object identifier</span></div>
+            <div class="definition">Уникальный признак, позволяющий однозначно определить информационный объект в системе.</div>
+            <div class="manifest">Форматы: DOI, ISBN, ISSN, URI. Стандарты: ISO 26324, ISO 2108.</div>
+        </div>
+    </div>
+
+    <div id="К" class="term-section">
+        <h2>К</h2>
+        
+        <div class="term-block">
+            <div class="term">Кластерный анализ <span class="term-en">Cluster analysis</span></div>
+            <div class="definition">Метод автоматической группировки документов по степени сходства их содержания.</div>
+            <div class="manifest">Применяется в информационном поиске, анализе текстов, категоризации.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">Контролируемый словарь <span class="term-en">Controlled vocabulary</span></div>
+            <div class="definition">Ограниченный набор терминов, используемый для индексирования и поиска информации.</div>
+            <div class="manifest">Примеры: тезаурусы, рубрикаторы, классификационные схемы.</div>
+        </div>
+    </div>
+
+    <div id="М" class="term-section">
+        <h2>М</h2>
+        
+        <div class="term-block">
+            <div class="term">Метаданные <span class="term-en">Metadata</span></div>
+            <div class="definition">Структурированная информация, описывающая характеристики и содержание информационного ресурса.</div>
+            <div class="manifest">Типы: описательные, административные, структурные. Стандарты: ISO 15836, ГОСТ Р 7.0.3-2006.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">Многоаспектная классификация <span class="term-en">Multidimensional classification</span></div>
+            <div class="definition">Система классификации, учитывающая несколько независимых признаков объектов.</div>
+            <div class="manifest">Применяется в библиотечных классификациях, электронных каталогах.</div>
+        </div>
+    </div>
+
+    <div id="О" class="term-section">
+        <h2>О</h2>
+        
+        <div class="term-block">
+            <div class="term">Онтология <span class="term-en">Ontology</span></div>
+            <div class="definition">Формальное описание системы понятий и отношений между ними в определенной предметной области.</div>
+            <div class="manifest">Используется в семантическом вебе, искусственном интеллекте. Форматы: OWL, RDF.</div>
+        </div>
+    </div>
+
+    <div id="П" class="term-section">
+        <h2>П</h2>
+        
+        <div class="term-block">
+            <div class="term">Профиль метаданных <span class="term-en">Metadata profile</span></div>
+            <div class="definition">Набор элементов метаданных, адаптированный для конкретной области применения.</div>
+            <div class="manifest">Примеры: профили для описания образовательных ресурсов, музейных объектов.</div>
+        </div>
+    </div>
+
+    <div id="Р" class="term-section">
+        <h2>Р</h2>
+        
+        <div class="term-block">
+            <div class="term">Реферат <span class="term-en">Abstract</span></div>
+            <div class="definition">Сжатое изложение содержания документа с основными фактическими сведениями и выводами.</div>
+            <div class="manifest">Стандарты: ГОСТ 7.9-95. Объем: 500-1000 знаков для научных публикаций.</div>
+        </div>
+    </div>
+
+    <div id="С" class="term-section">
+        <h2>С</h2>
+        
+        <div class="term-block">
+            <div class="term">Семантическая разметка <span class="term-en">Semantic markup</span></div>
+            <div class="definition">Способ описания содержания документа с указанием смысла его элементов.</div>
+            <div class="manifest">Технологии: RDF, микроформаты, schema.org. Применяется в семантическом вебе.</div>
+        </div>
+    </div>
+
+    <div id="Ф" class="term-section">
+        <h2>Ф</h2>
+        
+        <div class="term-block">
+            <div class="term">Фасетная классификация <span class="term-en">Faceted classification</span></div>
+            <div class="definition">Система организации информационных ресурсов по независимым аспектам (фасетам).</div>
+            <div class="manifest">Применение: электронные каталоги, интернет-магазины. Пример: классификация товаров по цвету, размеру, бренду.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">Формальная онтология <span class="term-en">Formal ontology</span></div>
+            <div class="definition">Точная спецификация концептуальной модели предметной области с использованием формальных языков.</div>
+            <div class="manifest">Используется в компьютерных науках, искусственном интеллекте. Языки: OWL, KIF.</div>
+        </div>
+    </div>
+
+    <div id="X" class="term-section">
+        <h2>X</h2>
+        
+        <div class="term-block">
+            <div class="term">XML-схема <span class="term-en">XML Schema</span></div>
+            <div class="definition">Способ описания структуры и содержания XML-документов, используемый для валидации метаданных.</div>
+            <div class="manifest">Применяется в форматах MODS, METS. Стандарт: W3C XML Schema.</div>
+        </div>
+    </div>
+
+    <!-- Английские термины -->
+    <div id="A" class="term-section">
+        <h2>A</h2>
+        
+        <div class="term-block">
+            <div class="term">API <span class="term-en">Application Programming Interface</span></div>
+            <div class="definition">Набор протоколов и инструментов для взаимодействия между программными компонентами.</div>
+            <div class="manifest">Используется для доступа к метаданным и контенту информационных систем.</div>
+        </div>
+    </div>
+
+    <div id="B" class="term-section">
+        <h2>B</h2>
+        
+        <div class="term-block">
+            <div class="term">BIBFRAME <span class="term-en">Bibliographic Framework</span></div>
+            <div class="definition">Модель описания библиографических данных, основанная на технологиях семантического веба.</div>
+            <div class="manifest">Разработана Библиотекой Конгресса как замена формата MARC.</div>
+        </div>
+    </div>
+
+    <div id="D" class="term-section">
+        <h2>D</h2>
+        
+        <div class="term-block">
+            <div class="term">DOI <span class="term-en">Digital Object Identifier</span></div>
+            <div class="definition">Уникальный постоянный идентификатор цифрового объекта в сети Интернет.</div>
+            <div class="manifest">Формат: 10.XXXX/XXXXX. Применяется для научных публикаций, данных.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">Dublin Core <span class="term-en">Дублинское ядро</span></div>
+            <div class="definition">Международный стандарт метаданных для описания цифровых ресурсов.</div>
+            <div class="manifest">Включает 15 основных элементов. Стандарт: ISO 15836.</div>
+        </div>
+    </div>
+
+    <div id="E" class="term-section">
+        <h2>E</h2>
+        
+        <div class="term-block">
+            <div class="term">EAD <span class="term-en">Encoded Archival Description</span></div>
+            <div class="definition">Стандарт кодирования архивных описаний на основе XML.</div>
+            <div class="manifest">Используется для описания архивных коллекций, рукописей.</div>
+        </div>
+    </div>
+
+    <div id="F" class="term-section">
+        <h2>F</h2>
+        
+        <div class="term-block">
+            <div class="term">FRBR <span class="term-en">Functional Requirements for Bibliographic Records</span></div>
+            <div class="definition">Концептуальная модель библиографической записи, разработанная IFLA.</div>
+            <div class="manifest">Определяет четыре уровня сущностей: Work, Expression, Manifestation, Item.</div>
+        </div>
+    </div>
+
+    <div id="H" class="term-section">
+        <h2>H</h2>
+        
+        <div class="term-block">
+            <div class="term">HTML5 Microdata <span class="term-en">Микроданные HTML5</span></div>
+            <div class="definition">Спецификация для встраивания семантической разметки в веб-страницы.</div>
+            <div class="manifest">Используется совместно со словарями schema.org для обогащения контента.</div>
+        </div>
+    </div>
+
+    <div id="I" class="term-section">
+        <h2>I</h2>
+        
+        <div class="term-block">
+            <div class="term">IPTC <span class="term-en">International Press Telecommunications Council</span></div>
+            <div class="definition">Стандарт метаданных для описания фотографий и мультимедийного контента.</div>
+            <div class="manifest">Широко используется в СМИ, фотобанках. Включает заголовки, ключевые слова, авторство.</div>
+        </div>
+    </div>
+
+    <div id="J" class="term-section">
+        <h2>J</h2>
+        
+        <div class="term-block">
+            <div class="term">JSON-LD <span class="term-en">JSON for Linked Data</span></div>
+            <div class="definition">Формат представления связанных данных на основе JSON.</div>
+            <div class="manifest">Используется для семантической разметки веб-страниц, API. Стандарт W3C.</div>
+        </div>
+    </div>
+
+    <div id="M" class="term-section">
+        <h2>M</h2>
+        
+        <div class="term-block">
+            <div class="term">METS <span class="term-en">Metadata Encoding and Transmission Standard</span></div>
+            <div class="definition">Стандарт для кодирования описательных, административных и структурных метаданных.</div>
+            <div class="manifest">Используется в цифровых библиотеках. Основан на XML.</div>
+        </div>
+        
+        <div class="term-block">
+            <div class="term">MODS <span class="term-en">Metadata Object Description Schema</span></div>
+            <div class="definition">Схема метаданных для библиографического описания, альтернатива MARC.</div>
+            <div class="manifest">Разработана Библиотекой Конгресса. Основана на XML.</div>
+        </div>
+    </div>
+
+    <div id="O" class="term-section">
+        <h2>O</h2>
+        
+        <div class="term-block">
+            <div class="term">OAI-PMH <span class="term-en">Open Archives Initiative Protocol for Metadata Harvesting</span></div>
+            <div class="definition">Протокол сбора метаданных из распределенных репозиториев.</div>
+            <div class="manifest">Используется в цифровых библиотеках, научных архивах.</div>
+        </div>
+    </div>
+
+    <div id="R" class="term-section">
+        <h2>R</h2>
+        
+        <div class="term-block">
+            <div class="term">RDF <span class="term-en">Resource Description Framework</span></div>
+            <div class="definition">Фреймворк для описания ресурсов в виде триплетов "субъект-предикат-объект".</div>
+            <div class="manifest">Основа семантического веба. Стандарт W3C.</div>
+        </div>
+    </div>
+
+    <div id="S" class="term-section">
+        <h2>S</h2>
+        
+        <div class="term-block">
+            <div class="term">SKOS <span class="term-en">Simple Knowledge Organization System</span></div>
+            <div class="definition">Модель представления систем организации знаний (тезаурусов, классификаций).</div>
+            <div class="manifest">Основана на RDF. Используется для публикации словарей в семантическом вебе.</div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">Вернуться к началу ↑</a>
+
+    <a href="index.html" class="back-button">
+        <img src="img/arrow-to-up.svg" alt="arrow-to-up">
+    </a>
 </body>
 </html>

@@ -472,6 +472,61 @@ footer p, footer h3 {
   text-align: center;
 }
 
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: top;
+}
+
+.comparison-table thead th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.criteria-cell {
+  font-weight: 600;
+  width: 150px;
+}
+
+.dictionary-name {
+  color: #2c3e50;
+  font-size: 0.95em;
+}
+
+@media (max-width: 1000px) {
+  .criteria-cell {
+    display: none;
+  }
+  #cr {
+    display: none;
+  }
+  .comparison-table {
+    width: 10%;
+  }
+  .dictionary-name {
+    font-size: 0.6em;
+  }
+  .comparison-table th,
+  .comparison-table td {
+    padding: 2%;
+    font-size: 80%;
+  }
+}
 @media (max-width: 1500px) {
   .grid {
     display: grid;
